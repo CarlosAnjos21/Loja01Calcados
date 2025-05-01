@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .banner {
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+  }
+  
+  .banner h1 {
+    font-size: 48px;
+    background-color: rgba(0,0,0,0.5);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    height: 100%;
+    position: sticky;
+    top: 0;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #333;
+    text-decoration: none;
+    background-color: #ddd;
+    border-radius: 5px;
+  }
+  
+  .sidebar a:hover {
+    background-color: #bbb;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .produto-secao {
+    margin-bottom: 40px;
+  }
+  
+  .produto-secao h2 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  .produto {
+    display: inline-block;
+    width: 180px;
+    margin: 10px;
+    text-align: center;
+  }
+
+.produto button {
+    margin-top: 5px;
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .produto button:hover {
+    background-color: #218838;
+  }
+  
+  .carrinho {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-left: 1px solid #ccc;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .carrinho h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  #lista-carrinho {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #lista-carrinho li {
+    margin-bottom: 8px;
+    padding: 5px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+  }
+  
+  /* Adapte o layout principal para caber o carrinho */
+  .container {
+    display: flex;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .sidebar {
+    flex-shrink: 0;
+  }
+  
+  .carrinho {
+    flex-shrink: 0;
+  }
