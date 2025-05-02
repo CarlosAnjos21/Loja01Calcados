@@ -1,134 +1,226 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .banner {
-    background-image: url('');
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    color: white;
-    padding: 80px 20px;
-  }
-  
-  .banner h1 {
-    font-size: 48px;
-    background-color: rgba(0,0,0,0.5);
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 10px;
-  }
-  
-  .container {
-    display: flex;
-  }
-  
-  .sidebar {
-    width: 200px;
-    background-color: #f4f4f4;
-    padding: 20px;
-    height: 100%;
-    position: sticky;
-    top: 0;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar a {
-    display: block;
-    padding: 10px;
-    margin-bottom: 10px;
-    color: #333;
-    text-decoration: none;
-    background-color: #ddd;
-    border-radius: 5px;
-  }
-  
-  .sidebar a:hover {
-    background-color: #bbb;
-  }
-  
-  .main-content {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .produto-secao {
-    margin-bottom: 40px;
-  }
-  
-  .produto-secao h2 {
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
-  }
-  
-  .produto {
-    display: inline-block;
-    width: 180px;
-    margin: 10px;
-    text-align: center;
-  }
+/* Deslizamento suave ao clicar em links internos */
+html {
+  scroll-behavior: smooth;
+}
 
+/* Reset de margens e plano de fundo degradê azul */
+body {
+  font-family: Arial, sans-serif; /* Fonte padrão */
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #21325e, #0D1B3B); /* Fundo azul degradê */
+  color: #F0F4F8; /* Cor clara para o texto */
+}
+
+/* Banner com imagem de fundo fixa e centralizada */
+.banner {
+  background-image: url('image4.png'); /* Imagem de fundo */
+  background-size: cover; /* Cobre toda a área */
+  background-position: center; /* Centraliza a imagem */
+  background-attachment: fixed; /* Efeito parallax */
+  height: 500px; /* Altura do banner */
+  display: flex; /* Centraliza conteúdo */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Título no banner com efeito de texto dourado */
+.banner h1 {
+  background: linear-gradient(to right, #b3987dff, #FFFACD); /* Degradê dourado */
+  -webkit-background-clip: text; /* Aplica o gradiente apenas ao texto */
+  -webkit-text-fill-color: transparent; /* Torna o texto transparente */
+  font-size: 70px; /* Tamanho grande */
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Texto pequeno abaixo do título com o mesmo estilo */
+#miniText {
+  font-size: 15px;
+  background: linear-gradient(to right, #b3987dff, #FFFACD);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 30px 0px 0px 13px;
+}
+
+/* Layout flexível: sidebar e conteúdo principal lado a lado */
+.container {
+  display: flex;
+}
+
+/* Barra lateral esquerda */
+.sidebar {
+  width: 230px; /* Largura fixa */
+  background-color: #162342; /* Azul escuro */
+  padding: 20px;
+}
+
+/* Remove estilos padrões da lista da sidebar */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilo dos links da sidebar */
+.sidebar li a {
+  display: block;
+  text-decoration: none;
+  color: #b3987dff; /* Cor dourada */
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s; /* Efeitos ao passar o mouse */
+}
+
+/* Hover nos links da sidebar */
+.sidebar li a:hover {
+  background: #131d37; /* Fundo mais escuro */
+  color: rgb(34, 183, 176); /* Ciano */
+}
+
+/* Área principal do conteúdo */
+.main-content {
+  flex: 1; /* Ocupa todo o espaço restante */
+  padding: 20px;
+}
+
+/* Títulos do conteúdo */
+h2 {
+  color: rgb(254, 231, 184); /* Amarelo claro */
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Parágrafos do conteúdo principal */
+p {
+  color: #162342; /* Azul escuro (contrasta com fundo claro dos cards) */
+}
+
+/* Estilo dos cards de produto */
+.produto {
+  display: inline-block;
+  width: 200px;
+  margin: 15px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: rgb(250, 245, 215); /* Bege claro */
+  color: #1B2A52; /* Azul escuro */
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s;
+}
+
+/* Efeito de escala ao passar o mouse nos produtos */
+.produto:hover {
+  transform: scale(1.03);
+}
+
+/* Imagens dos produtos */
+.produto img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Botão de adicionar ao carrinho */
 .produto button {
-    margin-top: 5px;
-    padding: 8px 12px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .produto button:hover {
-    background-color: #218838;
-  }
-  
-  .carrinho {
-    width: 250px;
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-left: 1px solid #ccc;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-  }
-  
-  .carrinho h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  #lista-carrinho {
-    list-style: none;
-    padding: 0;
-  }
-  
-  #lista-carrinho li {
-    margin-bottom: 8px;
-    padding: 5px;
-    background-color: #e9ecef;
-    border-radius: 4px;
-  }
-  
-  /* Adapte o layout principal para caber o carrinho */
-  .container {
-    display: flex;
-  }
-  
-  .main-content {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .sidebar {
-    flex-shrink: 0;
-  }
-  
-  .carrinho {
-    flex-shrink: 0;
-  }
+  margin-top: 5px;
+  padding: 8px 12px;
+  background-color: rgb(149, 113, 74); /* Marrom */
+  color: #b3987dff; /* Dourado */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* Hover do botão de produto */
+.produto button:hover {
+  background-color: #162342; /* Azul escuro */
+  color: rgb(34, 183, 176); /* Ciano */
+}
+
+/* Estilo da área do carrinho */
+.carrinho {
+  width: 230px;
+  background-color: #162342;
+  padding: 20px;
+  position: sticky; /* Fixa na rolagem */
+  top: 0;
+  height: 100vh;
+  overflow-y: auto; /* Rolagem vertical */
+}
+
+/* Lista de itens no carrinho */
+#lista-carrinho {
+  list-style: none;
+  padding: 0;
+}
+
+/* Estilo de cada item do carrinho */
+#lista-carrinho li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 3px 5px;
+  background-color: rgb(250, 245, 215); /* Bege claro */
+  border-radius: 4px;
+  color: #1B2A52;
+}
+
+/* Botão de remover item */
+.btn-remover {
+  background: none;
+  border: none;
+  color: rgb(248, 242, 206); /* Bege claro */
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Hover no botão de remover */
+.btn-remover:hover {
+  color: rgb(149, 113, 74); /* Marrom */
+}
+
+/* Botão para limpar o carrinho */
+.btn-limpar {
+  background-color: #162342;
+  color: #b3987dff; /* Dourado */
+  border: none;
+  padding: 10px;
+  margin-top: 15px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* Hover do botão de limpar */
+.btn-limpar:hover {
+  background-color: #131d37;
+  color: rgb(34, 183, 176);
+}
+
+/* Botão para ir pagar */
+.btn-pagar {
+  background-color: #162342;
+  color: #b3987dff;
+  border: none;
+  padding: 12px;
+  margin-top: 15px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 50px; /* Espaço extra antes do botão */
+}
+
+/* Hover do botão de pagar */
+.btn-pagar:hover {
+  background-color: #131d37;
+  color: #1b9f98ff; /* Ciano vibrante */
+}
