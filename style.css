@@ -14,7 +14,7 @@ body {
 
 /* Banner com imagem de fundo fixa e centralizada */
 .banner {
-  background-image: url('image4.png'); /* Imagem de fundo */
+  background-image: url('sport-shoes-1470061_1280.jpg'); /* Imagem de fundo */
   background-size: cover; /* Cobre toda a área */
   background-position: center; /* Centraliza a imagem */
   background-attachment: fixed; /* Efeito parallax */
