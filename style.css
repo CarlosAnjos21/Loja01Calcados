@@ -58,7 +58,7 @@ header {
   position: fixed;
   top: 0;
   left: -260px; /* Escondido inicialmente fora da tela */
-  width: 260px;
+  width: 300px;
   height: 100vh;
   color: #b3987dff;
   z-index: 10;

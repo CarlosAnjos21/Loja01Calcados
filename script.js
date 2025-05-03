@@ -31,10 +31,10 @@ document.getElementById('pagar-carrinho').addEventListener('click', function() {
 const menu = document.querySelector('.menu-lateral');
 
   document.addEventListener('mousemove', function (e) {
-    if (e.clientX < 30) {
-      // Se o mouse estiver nos 30px da borda esquerda
+    if (e.clientX < 40) {
+      // Se o mouse estiver nos 40px da borda esquerda
       menu.classList.add('ativo');
-    } else if (e.clientX > 280) {
+    } else if (e.clientX > 270) {
       // Se o mouse se afastar, oculta o menu
       menu.classList.remove('ativo');
     }
