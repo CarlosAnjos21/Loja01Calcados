@@ -27,3 +27,15 @@ document.getElementById('pagar-carrinho').addEventListener('click', function() {
     lista.innerHTML = ""; // Limpa a lista após a compra
   }
 });
+
+const menu = document.querySelector('.menu-lateral');
+
+  document.addEventListener('mousemove', function (e) {
+    if (e.clientX < 30) {
+      // Se o mouse estiver nos 30px da borda esquerda
+      menu.classList.add('ativo');
+    } else if (e.clientX > 280) {
+      // Se o mouse se afastar, oculta o menu
+      menu.classList.remove('ativo');
+    }
+  });
