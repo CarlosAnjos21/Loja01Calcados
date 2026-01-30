@@ -1,15 +1,13 @@
-/* Comportamento de rolagem suave para âncoras */
 html {
   scroll-behavior: smooth;
 }
 
-/* Estilo geral do corpo da página */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #0D1B3B, #193b8a, #0D1B3B); /* Degradê de fundo */
-  color: #F0F4F8; /* Cor padrão do texto */
+  background: linear-gradient(to bottom, #0D1B3B, #193b8a, #0D1B3B);
+  color: #F0F4F8;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -17,10 +15,10 @@ body {
 }
 
 h1 {
-  padding-top:110px;
+  padding-top: 110px;
   font-size: 85px;
   text-align: center;
-  background: linear-gradient(to right, rgb(232, 188, 86), #fae8bd); /* dourado para branco */
+  background: linear-gradient(to right, rgb(232, 188, 86), #fae8bd);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -29,49 +27,47 @@ h1 {
 #miniText {
   margin-left: 1300px;
   margin-top: -90px;
-  background: linear-gradient(to right, #fae8bd, rgb(232, 188, 86)); /* dourado para branco */
+  background: linear-gradient(to right, #fae8bd, rgb(232, 188, 86));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Estilo do cabeçalho com imagem de fundo (banner) */
 header {
   width: 100%;
-  height: 470px; /* Altura do banner */
+  height: 470px;
   background-image: 
     linear-gradient(to bottom, rgba(15, 38, 90, 0.6), rgba(95, 142, 251, 0.6)), 
     url('Img/sport-shoes-1470061_1280.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-attachment: fixed; /* Mantém a imagem fixa no fundo */
+  background-attachment: fixed;
 }
 
-/* Container principal com layout em linha */
 .container {
   display: flex;
   flex: 1;
 }
 
-/* Menu lateral fixo à esquerda */
+/* Navigation */
 .menu-lateral {
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
-  left: -260px; /* Escondido inicialmente fora da tela */
+  left: -260px;
   width: 300px;
   height: 100vh;
   color: #b3987dff;
   z-index: 10;
-  padding: 130px 0px 0px 0px;
+  padding: 130px 0 0 0;
   transition: left 0.3s ease;
 }
 
 .menu-lateral a {
   display: block;
   color: #b3987dff;
-  padding: 10px 90% 10px 50px;
+  padding: 10px 80% 10px 50px;
   text-decoration: none;
   font-weight: bold;
   margin-bottom: 5px;
@@ -80,35 +76,32 @@ header {
 }
 
 .menu-lateral a:hover {
-  background-color: #0c1835;
+  background-color: #2c3752;
   color: rgb(34, 183, 176);
 }
 
 .menu-lateral.ativo {
-  left: 0; /* Mostra o menu */
+  left: 0;
 }
 
-/* Conteúdo principal com itens */
 .main-content {
-  margin-left:230px; /* Espaço reservado para o menu lateral */
+  margin-left: 230px;
   flex: 1;
   padding: 20px;
 }
 
-/* Estilo dos títulos das seções */
 h2 {
   color: rgb(254, 231, 184);
   margin-bottom: 20px;
   font-weight: 600;
 }
 
-/* Estilo individual de cada produto */
+/* Product Cards */
 .produto {
   display: inline-block;
   vertical-align: top;
-
   width: 210px;
-  height: 240px;
+  min-height: 270px;
   margin: 15px;
   text-align: center;
   border-radius: 8px;
@@ -116,43 +109,52 @@ h2 {
   background-color: rgb(250, 245, 215);
   color: #1B2A52;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
 }
 
-/* Efeito de zoom ao passar o mouse sobre o produto */
 .produto:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 2;
 }
 
-/* Imagem do produto */
 .produto img {
   width: 100%;
   height: 150px;
   object-fit: cover;
-  object-position: center;
+  image-rendering: -webkit-optimize-contrast;
   border-radius: 6px;
   display: block;
+  backface-visibility: hidden;
+  transition: transform 0.5s ease;
 }
 
-/* Botão de comprar nos produtos */
+
 .produto button {
-  margin-top: 5px;
-  padding: 8px 12px;
+  margin-top: 12px;
+  padding: 8px 16px;
   background-color: rgb(149, 113, 74);
   color: rgb(248, 242, 206);
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 5;
 }
 
-/* Efeito hover no botão de comprar */
 .produto button:hover {
   background-color: #162342;
   color: rgb(34, 183, 176);
 }
 
-/* Área do carrinho (lateral direita da tela) */
+.produto button:active {
+  transform: scale(0.95);
+}
+
+/* Shopping Cart Section */
 .carrinho {
   width: 260px;
   background-color: rgba(0, 0, 0, 0.3);
@@ -160,71 +162,53 @@ h2 {
   position: sticky;
   top: 0;
   height: 100vh;
-  overflow-y: auto; /* Adiciona rolagem se necessário */
+  overflow-y: auto;
 }
 
-/* Botão de remover item do carrinho (X) */
 .btn-remover {
-  background: none;              /* Sem fundo */
-  border: none;                  /* Sem borda */
-  color: rgb(248, 242, 206);                /* Cor do "x" */
+  background: none;
+  border: none;
+  color: #b3987dff;
   font-weight: bold;
   font-size: 18px;
   cursor: pointer;
-  padding: 0;                    /* Sem preenchimento extra */
-  margin-left: 10px;             /* Espaço do lado direito */
+  margin-left: 10px;
   transition: color 0.3s;
 }
 
-/* Efeito ao passar o mouse no "x" */
 .btn-remover:hover {
-  color: #0D1B3B;                /* muda de cor no hover */
+  color: #0D1B3B;
 }
 
-/* Estilo de cada item na lista do carrinho */
 #lista-carrinho li {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
-  padding: 3px 5px;
+  padding: 5px;
   background-color: rgb(250, 245, 215);
   border-radius: 4px;
   color: #1B2A52;
 }
 
 .btn-limpar, .btn-pagar {
-  background-color: transparent; /* Cor de fundo original */
-  color: #b3987dff;          /* Cor do texto */
+  background-color: transparent;
+  color: #b3987dff;
   border: none;
-  width: calc(100%);
+  width: 100%;
   height: 35px;
-  border-radius: 5px;        /* Bordas arredondadas para melhor visual */
-  margin-top: 5px;
+  border-radius: 5px;
+  margin-top: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s; /* Suaviza a transição */
+  transition: all 0.3s ease;
   font-size: 16px;
-  
-}
-
-.btn-limpar {
-  margin-left: 0px;
 }
 
 .btn-pagar {
   margin-top: 40px;
-  margin-left: 0px;
 }
 
-/* Efeito hover: muda a cor de fundo e texto ao passar o mouse */
-.btn-limpar:hover {
-  background-color: #0D1B3B; /* Cor de fundo ao passar o mouse */
-  color: rgb(34, 183, 176);           /* Cor do texto ao passar o mouse */
+.btn-limpar:hover, .btn-pagar:hover {
+  background-color: #0D1B3B;
+  color: rgb(34, 183, 176);
 }
-
-.btn-pagar:hover {
-  background-color: #0D1B3B; /* Cor de fundo ao passar o mouse */
-  color: rgb(34, 183, 176);           /* Cor do texto ao passar o mouse */
-}
-
-
